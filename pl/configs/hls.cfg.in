@@ -1,0 +1,17 @@
+# Vitis HLS component configuration (rendered by tools/build_cfg.py hls; do not edit the
+# rendered copy under build/).  Used by:
+#   vitis-run --mode hls --csim  --config <this> --work_dir <dir>     (C simulation)
+#   v++ -c    --mode hls         --config <this> --work_dir <dir>     (synthesis + .xo)
+#   vitis-run --mode hls --cosim --config <this> --work_dir <dir>     (RTL co-simulation)
+# Test vectors are read at run time from $SPLICEV_VECTORS (no paths inside -D macros).
+part=@PART@
+
+[hls]
+flow_target=vitis
+package.output.format=xo
+package.output.file=@XO@
+syn.file=@SYN_FILE@
+syn.top=@TOP@
+syn.cflags=@SYN_CFLAGS@
+@TB_LINES@
+clock=@CLOCK@

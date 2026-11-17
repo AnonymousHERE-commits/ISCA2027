@@ -1,0 +1,162 @@
+{
+  "_doc": "Stage gates of roadmap section 12 with the repository support for each. status: host-verified (checked here without AMD tools or board), partial, ready-to-run (code and commands exist; needs tools/board), not-started, blocked (needs an input outside this repository). A gate passes only on its exit evidence files, never on this table.",
+  "gates": [
+    {
+      "id": "G00",
+      "title": "Archive current folder and freeze SPLICE-V identity",
+      "exit_evidence": "Source/checkpoint inventory; unchanged older project; requirements and unresolved list.",
+      "repository": [
+        "git clone into ~/projects/splicev (new folder; older projects untouched)",
+        "contracts/manifest.paper.json (paper seed with 'unresolved')",
+        "python3 tools/check_contract.py",
+        "python3 tools/audit_paper_numbers.py"
+      ],
+      "status": "host-verified",
+      "note": "paper identity and unresolved list are in the paper seed; checkpoint inventory needs the trained model (artifacts/checkpoints/ is empty)"
+    },
+    {
+      "id": "G01",
+      "title": "Host and board platform inventory",
+      "exit_evidence": "Exact device/tool versions; candidate XPFM; Linux/XRT API report; no guessed platform.",
+      "repository": [
+        "make preflight-host PLATFORM=<candidate.xpfm>",
+        "tools/preflight.py --target board (on the board)",
+        "python3 tools/probe_pyxrt.py (on the board)",
+        "python3 tools/platform_report.py --xpfm ..."
+      ],
+      "status": "ready-to-run",
+      "note": "needs the desktop with Vitis 2025.2 and the booted board"
+    },
+    {
+      "id": "G02",
+      "title": "One-worker AIE + PL movers + Python",
+      "exit_evidence": "Hardware bytes exact, repeated frames/reboot, bounded waits.",
+      "repository": [
+        "make system SYSTEM=smoke PLATFORM=...",
+        "python3 ps/apps/g02_smoke.py --release artifacts/release/smoke/release.json --repeat 5 (and again after reboot)"
+      ],
+      "status": "ready-to-run",
+      "note": "host side verified: smoke kernel on the mock ADF layer and the app on the emulated device; needs the qualified TE0950 platform"
+    },
+    {
+      "id": "G03",
+      "title": "Complete manifest and reference primitives",
+      "exit_evidence": "No deployment-critical nulls; generated ABI/LUTs; arithmetic/branch fixtures exact.",
+      "repository": [
+        "python3 tools/generate_sources.py --check",
+        "make test",
+        "make host-cpp"
+      ],
+      "status": "partial",
+      "note": "dev manifest is complete for bring-up but marked non-deployable: 3 nulls, SYN-01..06 synthetic values and DD-01..19 design decisions remain until G04"
+    },
+    {
+      "id": "G04",
+      "title": "Arm-(e) model, calibration and integer export",
+      "exit_evidence": "Hash-bound trained models, DFP32/Db/M comparisons, early hypotheses and Phi dependency closed.",
+      "repository": [
+        "detector/splice_det (model in the seven readout arms of SPLICE-V, training, calibration, QAT, evaluation, diagnostics, export), detector/README.md",
+        "detector/hpc/README.md: bash run_splicev.sh check; sbatch run_splicev.sh smoke, then pilot, then the full suite (Arrhenius)",
+        "python3 -m unittest discover -s tests -p 'test_detector_*.py' && python3 -m unittest discover -s tests -p 'test_hpc_*.py'",
+        "python3 tools/check_contract.py --manifest <suite>/085_EXPORT/runs/<task>/RESULT/export/manifest.model.json"
+      ],
+      "status": "partial",
+      "note": "model, training, calibration, QAT, evaluation and export code written and host-tested (PyTorch code forward-only on a numpy stand-in); the Arrhenius suite is tested through a mock Slurm; synthetic-scene run exported (artifacts/trained/synthetic_arm_e, provenance S); Phi is a function of the pre-exchange state (DM-05); Eq. (2) of SPLICE-V is the objective the integer reference solves; pending: the first GPU run (smoke scale), image training, DFP32/Db/M comparisons, the exposure discount of SPLICE-V in the integer reference and on the device"
+    },
+    {
+      "id": "G05",
+      "title": "One-worker AIE numerical kernels",
+      "exit_evidence": "All walk/band/forecast/residual elements exact; program and data budgets fit.",
+      "repository": [
+        "make host-aie host-graphs",
+        "make aie AIE_SET=uniform1 AIE_TARGET=x86sim && make aie-sim AIE_SET=uniform1 AIE_TARGET=x86sim SUITE=basic",
+        "make aie AIE_SET=uniform1 PLATFORM=... (program-memory report; use split3 if it does not fit)",
+        "python3 ps/apps/g05_units.py --release artifacts/release/slice1/release.json"
+      ],
+      "status": "ready-to-run",
+      "note": "dispatcher bodies bit-exact vs the reference on the host (scalar path); AIE compiler fit and the vectorised paths are unverified"
+    },
+    {
+      "id": "G06",
+      "title": "PL linkage, gate, posterior and trust",
+      "exit_evidence": "Exact oracle cases; one-call RTL and repeat/reset tests; measured resource schedules.",
+      "repository": [
+        "make host-pl",
+        "make hls-csim KERNEL=<k> CAPS=small",
+        "make hls KERNEL=<k>",
+        "make hls-cosim KERNEL=<k>",
+        "python3 ps/apps/g06_engines.py --release ... --repeat 3"
+      ],
+      "status": "ready-to-run",
+      "note": "cores and kernel tops bit-exact vs the reference with g++ (__int128); ap_int<128> HLS path, synthesis and cosim unverified"
+    },
+    {
+      "id": "G07",
+      "title": "Masked fragment-loop integration",
+      "exit_evidence": "Same G in both engines; no circular dependency; exact source lists/delta-V/residual.",
+      "repository": [
+        "python3 -m unittest tests.test_slice_runner (reference orchestration)",
+        "make emulate",
+        "python3 ps/apps/g07_slice.py --release artifacts/release/slice1/release.json --seeds 0 1 2"
+      ],
+      "status": "ready-to-run",
+      "note": "toy slice orchestrated over units + PL engines equals the reference at all six boundaries (reference and emulated device); host-orchestrated mode, labelled so"
+    },
+    {
+      "id": "G08",
+      "title": "Multiworker partition and memory plan",
+      "exit_evidence": "Two-/four-/34-worker sequence; sixteen legal tuples documented; no overflow/deadlock.",
+      "repository": [
+        "aie/worker_classes.json (uniform2/uniform4/split3 sets)",
+        "python3 tools/gen_aie_graph.py --set ..."
+      ],
+      "status": "not-started",
+      "note": "direct-PLIO multiworker graphs are generated; packet-switched 34-worker graph and the partition catalogue (paper does not enumerate the 16 tuples) are open"
+    },
+    {
+      "id": "G09",
+      "title": "Persistent schedule and priority products",
+      "exit_evidence": "All H0-H5/G events correct; no r->box dependency; credits/generation tests pass.",
+      "repository": [],
+      "status": "not-started",
+      "note": "needs the PL sequencer (device-scheduled mode); packet layouts are generated"
+    },
+    {
+      "id": "G10",
+      "title": "Native and enhanced full detector",
+      "exit_evidence": "Six-boundary parity on complete frames, cap cases and forced budget exits.",
+      "repository": [],
+      "status": "blocked",
+      "note": "needs G04 model and G09 schedule"
+    },
+    {
+      "id": "G11",
+      "title": "Timing/resource closure",
+      "exit_evidence": "Actual platform clocks; no critical DRCs; post-route allocation incl. shell and debug.",
+      "repository": [],
+      "status": "blocked",
+      "note": "needs the platform and the full system build"
+    },
+    {
+      "id": "G12",
+      "title": "Accuracy, load and energy study",
+      "exit_evidence": "P1-P9 results with source tags, paired intervals, common loads, auditable rail samples.",
+      "repository": [
+        "ps/splicev_ps/measure.py (rail sampling from a user map)"
+      ],
+      "status": "blocked",
+      "note": "needs G10/G11"
+    },
+    {
+      "id": "G13",
+      "title": "Reproducible release",
+      "exit_evidence": "One manifest/model/platform identity; clean-build logs; deploy procedure; checksum inventory.",
+      "repository": [
+        "tools/release.py",
+        "make bundle"
+      ],
+      "status": "partial",
+      "note": "release identity and bundle tooling exist; a deployable release needs G04-G12"
+    }
+  ]
+}

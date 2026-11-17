@@ -1,0 +1,134 @@
+{
+  "schema": "splicev-manifest/1",
+  "manifest_id": "splicev-model-synthetic-trained",
+  "extends": "../../../contracts/manifest.dev.json",
+  "profile": "model",
+  "deployable": false,
+  "note": "Calibrated and trained on synthetic scenes only (pipeline qualification); not a detector trained on images. Non-deployable.",
+  "overrides": {
+    "bands.exponents": {
+      "P3": [
+        4,
+        4,
+        4,
+        3
+      ],
+      "P4": [
+        4,
+        4,
+        3,
+        3
+      ],
+      "P5": [
+        4,
+        4,
+        3,
+        2
+      ]
+    },
+    "bands.lowpass_exponent": 0,
+    "gate.thresholds": [
+      13.314546671973261,
+      13.314546671973261,
+      13.314546671973261,
+      13.314546671973261
+    ],
+    "gate.strata": {
+      "by": "fragment_count_F",
+      "bounds": [
+        32,
+        96,
+        192
+      ]
+    },
+    "posterior.prior_table": [
+      [
+        0.3967226380740441,
+        0.4675298401780295,
+        0.13574752174792637
+      ]
+    ],
+    "trust.a_r": 0.25,
+    "trust.b_r": 1.0,
+    "trust.c_r": 0.5,
+    "forecast.logit_multipliers": {
+      "kk_mult": 1,
+      "uu_mult": 1,
+      "shift": 9,
+      "null_mult": 1,
+      "null_shift": 9,
+      "alpha_mult": 1,
+      "alpha_shift": 9
+    },
+    "forecast.u_dim": 16,
+    "readout.rz_shift": 7
+  },
+  "decisions": {
+    "bands.exponents": {
+      "id": "CAL-01",
+      "kind": "calibrated",
+      "why": "floor(log2(127 / q99.99 |Z| / lsb)) on the calibration split",
+      "provenance": "S"
+    },
+    "bands.lowpass_exponent": {
+      "id": "CAL-01",
+      "kind": "calibrated",
+      "why": "low-pass band range on the calibration split",
+      "provenance": "S"
+    },
+    "gate.thresholds": {
+      "id": "CAL-02",
+      "kind": "calibrated",
+      "why": "Mondrian conformal quantile of same-instance d^2, delta = 0.01",
+      "provenance": "S"
+    },
+    "gate.strata": {
+      "id": "CAL-02",
+      "kind": "model",
+      "why": "strata of the calibration",
+      "provenance": "S"
+    },
+    "posterior.prior_table": {
+      "id": "CAL-03",
+      "kind": "calibrated",
+      "why": "frequencies of min(K, Kmax) true partners among admissible partners",
+      "provenance": "S"
+    },
+    "trust.a_r": {
+      "id": "CAL-04",
+      "kind": "model",
+      "why": "trust constant of the trained model",
+      "provenance": "S"
+    },
+    "trust.b_r": {
+      "id": "CAL-04",
+      "kind": "model",
+      "why": "trust constant of the trained model",
+      "provenance": "S"
+    },
+    "trust.c_r": {
+      "id": "CAL-04",
+      "kind": "model",
+      "why": "trust constant of the trained model",
+      "provenance": "S"
+    },
+    "forecast.logit_multipliers": {
+      "id": "CAL-05",
+      "kind": "model",
+      "why": "derived from the export scales",
+      "provenance": "S"
+    },
+    "forecast.u_dim": {
+      "id": "CAL-05",
+      "kind": "model",
+      "why": "width of U in the trained model",
+      "provenance": "S"
+    },
+    "readout.rz_shift": {
+      "id": "CAL-06",
+      "kind": "model",
+      "why": "exponent of the exported residual maps Z_l",
+      "provenance": "S"
+    }
+  }
+}

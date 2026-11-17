@@ -1,0 +1,442 @@
+[
+  {
+    "item": "C_G(128) cycles at the cap",
+    "stated": 2798,
+    "recomputed": 2798.0,
+    "status": "REPRODUCED",
+    "ref": "\u00a73 gate",
+    "note": ""
+  },
+  {
+    "item": "gate time (128 lanes), us",
+    "stated": 9.3,
+    "recomputed": 9.326667,
+    "status": "REPRODUCED",
+    "ref": "Table 2",
+    "note": ""
+  },
+  {
+    "item": "C_G(64) cycles at the cap",
+    "stated": 5532,
+    "recomputed": 5532.0,
+    "status": "REPRODUCED",
+    "ref": "\u00a73 gate",
+    "note": ""
+  },
+  {
+    "item": "gate time (64 lanes), us",
+    "stated": 18.4,
+    "recomputed": 18.44,
+    "status": "REPRODUCED",
+    "ref": "Table 2",
+    "note": ""
+  },
+  {
+    "item": "C_G(32) cycles at the cap",
+    "stated": 11000,
+    "recomputed": 11000.0,
+    "status": "REPRODUCED",
+    "ref": "\u00a73 gate",
+    "note": ""
+  },
+  {
+    "item": "gate time (32 lanes), us",
+    "stated": 36.7,
+    "recomputed": 36.666667,
+    "status": "REPRODUCED",
+    "ref": "Table 2",
+    "note": ""
+  },
+  {
+    "item": "C_X base cycles (E_dup = 0)",
+    "stated": 33472,
+    "recomputed": 33472.0,
+    "status": "REPRODUCED",
+    "ref": "Eq. (6)",
+    "note": "roadmap 2.3"
+  },
+  {
+    "item": "C_X at E_dup = 1024",
+    "stated": 41664,
+    "recomputed": 41664.0,
+    "status": "REPRODUCED",
+    "ref": "Eq. (6)",
+    "note": "41,664 cycles needs E_dup = 1,024; the enforced bound must come from the model"
+  },
+  {
+    "item": "C_X at E_dup = 4096 (cap of the min)",
+    "stated": 66240,
+    "recomputed": 66240.0,
+    "status": "REPRODUCED",
+    "ref": "Eq. (6)",
+    "note": ""
+  },
+  {
+    "item": "X (128 lanes), ms",
+    "stated": 0.217,
+    "recomputed": 0.216759,
+    "status": "REPRODUCED",
+    "ref": "Table 2",
+    "note": ""
+  },
+  {
+    "item": "g2 (128 lanes), ms",
+    "stated": 0.242,
+    "recomputed": 0.241759,
+    "status": "REPRODUCED",
+    "ref": "Table 2",
+    "note": ""
+  },
+  {
+    "item": "X (64 lanes), ms",
+    "stated": 0.328,
+    "recomputed": 0.327692,
+    "status": "REPRODUCED",
+    "ref": "Table 2",
+    "note": ""
+  },
+  {
+    "item": "g2 (64 lanes), ms",
+    "stated": 0.353,
+    "recomputed": 0.352692,
+    "status": "REPRODUCED",
+    "ref": "Table 2",
+    "note": ""
+  },
+  {
+    "item": "X (32 lanes), ms",
+    "stated": 0.55,
+    "recomputed": 0.549559,
+    "status": "REPRODUCED",
+    "ref": "Table 2",
+    "note": ""
+  },
+  {
+    "item": "g2 (32 lanes), ms",
+    "stated": 0.575,
+    "recomputed": 0.574559,
+    "status": "REPRODUCED",
+    "ref": "Table 2",
+    "note": ""
+  },
+  {
+    "item": "priority unit time t_U, us",
+    "stated": 2.9,
+    "recomputed": 2.878778,
+    "status": "REPRODUCED",
+    "ref": "Prop. 4",
+    "note": ""
+  },
+  {
+    "item": "priority unit MACs, M",
+    "stated": 15.1,
+    "recomputed": 15.07328,
+    "status": "REPRODUCED",
+    "ref": "Prop. 4",
+    "note": ""
+  },
+  {
+    "item": "row slicing intake-bound below n cells",
+    "stated": 544,
+    "recomputed": 544.0,
+    "status": "REPRODUCED",
+    "ref": "Lemma 1(i)",
+    "note": ""
+  },
+  {
+    "item": "row-slice ceiling at P5",
+    "stated": 0.37,
+    "recomputed": 0.367647,
+    "status": "REPRODUCED",
+    "ref": "Lemma 1(i)",
+    "note": ""
+  },
+  {
+    "item": "depthwise 3x3 output ceiling",
+    "stated": 0.28,
+    "recomputed": 0.28125,
+    "status": "REPRODUCED",
+    "ref": "Lemma 1(ii)",
+    "note": ""
+  },
+  {
+    "item": "executed walk term at P5 (q = 14)",
+    "stated": 0.0064,
+    "recomputed": 0.006409,
+    "status": "REPRODUCED",
+    "ref": "Prop. 1",
+    "note": ""
+  },
+  {
+    "item": "executed walk term at P5 (q = 13)",
+    "stated": 0.012,
+    "recomputed": 0.012268,
+    "status": "REPRODUCED",
+    "ref": "Prop. 1",
+    "note": ""
+  },
+  {
+    "item": "declared walk tolerance",
+    "stated": 0.0095,
+    "recomputed": 0.0095,
+    "status": "REPRODUCED",
+    "ref": "Prop. 1",
+    "note": ""
+  },
+  {
+    "item": "int8-state walk term",
+    "stated": 0.053,
+    "recomputed": 0.053101,
+    "status": "REPRODUCED",
+    "ref": "\u00a74 word lengths",
+    "note": "state rounding T 2^-8 replaces T 2^-16"
+  },
+  {
+    "item": "posterior bound, b = 24 (log2)",
+    "stated": -14.7,
+    "recomputed": -14.714548,
+    "status": "REPRODUCED",
+    "ref": "Prop. 2(i)",
+    "note": ""
+  },
+  {
+    "item": "posterior bound, b = 16 (log2)",
+    "stated": -6.9,
+    "recomputed": -6.942951,
+    "status": "REPRODUCED",
+    "ref": "\u00a74 word lengths",
+    "note": ""
+  },
+  {
+    "item": "P1 per-image mismatch bound",
+    "stated": 0.00059,
+    "recomputed": 0.0005847,
+    "status": "CONSISTENT",
+    "ref": "\u00a74",
+    "note": "1 - (0.05/12)^(1/9370) = 5.85e-4, stated rounded up"
+  },
+  {
+    "item": "boundary figure labels, KB",
+    "stated": 535.5,
+    "recomputed": 535.5,
+    "status": "REPRODUCED",
+    "ref": "Fig. 3(a)",
+    "note": ""
+  },
+  {
+    "item": "cell-tensor variant ratio",
+    "stated": 6.0,
+    "recomputed": 5.981308,
+    "status": "REPRODUCED",
+    "ref": "\u00a73 boundary",
+    "note": ""
+  },
+  {
+    "item": "G mask bytes at F = 256",
+    "stated": 8192,
+    "recomputed": 8192.0,
+    "status": "REPRODUCED",
+    "ref": "Fig. 3(a)",
+    "note": ""
+  },
+  {
+    "item": "H3' bytes (256 x 8 x u16)",
+    "stated": 4096,
+    "recomputed": 4096.0,
+    "status": "REPRODUCED",
+    "ref": "Fig. 3(a)",
+    "note": ""
+  },
+  {
+    "item": "H3'' bytes (256 x 8 x (48 + 4))",
+    "stated": 106496,
+    "recomputed": 106496.0,
+    "status": "REPRODUCED",
+    "ref": "Fig. 3(a)",
+    "note": "translated values int8 x 48 + one int32 check"
+  },
+  {
+    "item": "H0 bytes (6400 x 2 u8)",
+    "stated": 12800,
+    "recomputed": 12800.0,
+    "status": "REPRODUCED",
+    "ref": "Fig. 3(a)",
+    "note": ""
+  },
+  {
+    "item": "P bytes (1600 x 12 u8)",
+    "stated": 19200,
+    "recomputed": 19200.0,
+    "status": "REPRODUCED",
+    "ref": "Fig. 3(a)",
+    "note": ""
+  },
+  {
+    "item": "generated dev-profile boundary payload, bytes",
+    "stated": "535 KB (figure)",
+    "recomputed": 427056,
+    "status": "CONSISTENT",
+    "ref": "",
+    "note": "DMA lengths use generated layouts; H1/H2/H3 field lists differ from the figure until the model export fixes them"
+  },
+  {
+    "item": "memory tiles, bytes",
+    "stated": 8912896,
+    "recomputed": 8912896.0,
+    "status": "REPRODUCED",
+    "ref": "\u00a73 device",
+    "note": ""
+  },
+  {
+    "item": "resident working set, MB",
+    "stated": 7.38,
+    "recomputed": 7.38,
+    "status": "REPRODUCED",
+    "ref": "\u00a73 memory",
+    "note": ""
+  },
+  {
+    "item": "PLIO per direction, GB/s",
+    "stated": 12.8,
+    "recomputed": 12.8,
+    "status": "REPRODUCED",
+    "ref": "\u00a73 boundary",
+    "note": ""
+  },
+  {
+    "item": "accelerator RAM, two 256-bit ports at 300 MHz, GB/s",
+    "stated": 19.2,
+    "recomputed": 19.2,
+    "status": "REPRODUCED",
+    "ref": "\u00a73 memory",
+    "note": ""
+  },
+  {
+    "item": "accelerator RAM, one port, GB/s",
+    "stated": 9.6,
+    "recomputed": 9.6,
+    "status": "REPRODUCED",
+    "ref": "\u00a73 memory",
+    "note": ""
+  },
+  {
+    "item": "residual bound, LSB",
+    "stated": 191,
+    "recomputed": 191.0,
+    "status": "REPRODUCED",
+    "ref": "Def. 1",
+    "note": ""
+  },
+  {
+    "item": "residual magnitude bits (+ sign)",
+    "stated": 9,
+    "recomputed": 9.0,
+    "status": "REPRODUCED",
+    "ref": "Def. 1",
+    "note": ""
+  },
+  {
+    "item": "one 30-frame/s camera x 9",
+    "stated": 270,
+    "recomputed": 270.0,
+    "status": "REPRODUCED",
+    "ref": "\u00a74 P5",
+    "note": ""
+  },
+  {
+    "item": "SPLICE-A-V vs T4 at the cap, % lower",
+    "stated": 12.4,
+    "recomputed": 12.462006,
+    "status": "REPRODUCED",
+    "ref": "\u00a74",
+    "note": ""
+  },
+  {
+    "item": "SPLICE-B-V vs native N-A, % less time",
+    "stated": 2.5,
+    "recomputed": 2.519084,
+    "status": "REPRODUCED",
+    "ref": "\u00a74",
+    "note": ""
+  },
+  {
+    "item": "array vs DSP58-only time, SPLICE-B",
+    "stated": 13.6,
+    "recomputed": 13.586531,
+    "status": "REPRODUCED",
+    "ref": "\u00a74",
+    "note": ""
+  },
+  {
+    "item": "array vs DSP58-only energy, SPLICE-B",
+    "stated": 7.5,
+    "recomputed": 7.461538,
+    "status": "REPRODUCED",
+    "ref": "\u00a74",
+    "note": ""
+  },
+  {
+    "item": "int8 peak ratio, 34 tiles vs 464 DSP58 dot slices",
+    "stated": 20.8,
+    "recomputed": 20.842912,
+    "status": "REPRODUCED",
+    "ref": "\u00a74",
+    "note": ""
+  },
+  {
+    "item": "cap latency model at eta_k = 0.5, SPLICE-A-V, ms",
+    "stated": 2.88,
+    "recomputed": 2.88,
+    "status": "REPRODUCED",
+    "ref": "\u00a74 Fig. 5(b)",
+    "note": ""
+  },
+  {
+    "item": "cap latency model at eta_k = 0.5, SPLICE-B-V, ms",
+    "stated": 2.554,
+    "recomputed": 2.56,
+    "status": "REPRODUCED",
+    "ref": "\u00a74 Fig. 5(b)",
+    "note": ""
+  },
+  {
+    "item": "P3b holds above eta_k",
+    "stated": 0.43,
+    "recomputed": 0.427046,
+    "status": "REPRODUCED",
+    "ref": "\u00a74",
+    "note": ""
+  },
+  {
+    "item": "knee 351 frames/s vs L1 = 2.882 ms",
+    "stated": 351,
+    "recomputed": 347.0,
+    "status": "CONSISTENT",
+    "ref": "Prop. 6",
+    "note": "1/W with W = L1 - g3 (g3 ~ 0.03 ms)"
+  },
+  {
+    "item": "L1 = W + g3 = 2.882 ms (SPLICE-A-V)",
+    "stated": 2.882,
+    "recomputed": null,
+    "status": "OPEN",
+    "ref": "Prop. 6",
+    "note": "needs the per-unit schedule model (87 convolutions, best legal tuples)"
+  },
+  {
+    "item": "energy 39.0 mJ, 44.0 mJ, P5 47.3 vs 47.2 mJ",
+    "stated": "Table 3",
+    "recomputed": null,
+    "status": "OPEN",
+    "ref": "Table 3",
+    "note": "power-model integration over the schedule; board PMBus later (P5)"
+  },
+  {
+    "item": "accuracy rows (AP / MR-2)",
+    "stated": "Tables 3, 7",
+    "recomputed": null,
+    "status": "OPEN",
+    "ref": "Table 7",
+    "note": "training and validation runs (P2, P7, P9)"
+  }
+]

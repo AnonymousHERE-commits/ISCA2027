@@ -1,0 +1,35 @@
+{
+  "time_utc": "2026-11-14T06:24:58Z",
+  "source": {
+    "generator": "splice_det.toytrain",
+    "profile": "splicev-model-synthetic-trained",
+    "profile_sha256": "6fd5b465bff41d0d38609472e22e0cd205a4a28b5b69094f5ea66392a1550c3d",
+    "seeds": {
+      "train": [
+        1000,
+        1799
+      ],
+      "val": [
+        3000,
+        3159
+      ],
+      "calib": [
+        5000,
+        5319
+      ],
+      "test": [
+        9000,
+        9159
+      ]
+    }
+  },
+  "sha256": {
+    "tensors.svb": "9caf5fcfde67ff84e1161d5ee88ab0beb875c7a1e304a3aa270160859f310bb3",
+    "float_tensors.npz": "b88b1123443b8430f8afd31afe1c152da6ba5db4b966d4dbacb29b35f6f1cc04",
+    "inventory.json": "407ba808dc2e1af7d3684eb6a947cf0043f9e196c900558f1e527133795266c3",
+    "calibration.json": "ed9e3f2f141a6658517a9f22e976857b09f1a76d669ec5808e782620ab19d979",
+    "manifest.model.json": "08a7fcaefe53dca4bf14d7fa7f4900cc26053ab751c342337648248a56137d38"
+  },
+  "n_tensors": 12,
+  "n_layers": 12
+}

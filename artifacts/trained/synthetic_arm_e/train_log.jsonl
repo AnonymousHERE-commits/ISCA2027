@@ -1,0 +1,30 @@
+{"stage": "calibrate", "gate_tau": [13.314546671973261, 13.314546671973261, 13.314546671973261, 13.314546671973261], "gate_pairs": {"0": 2274}, "delta": 0.01, "prior": [0.3967226380740441, 0.4675298401780295, 0.13574752174792637], "partner_rows": 3078, "band_exponents": [[4, 4, 4, 3], [4, 4, 3, 3], [4, 4, 3, 2]], "lowpass_exponent": 0, "scenes": 320, "time": "07:22:44"}
+{"stage": "data", "profile": "splicev-model-synthetic-trained", "train_scenes": 800, "val_scenes": 160, "train_rows": 7682, "time": "07:23:17"}
+{"stage": "baseline_test", "rows": 1224, "mean_abs_r": 14.83222698801743, "mse_r": 395.341520288671, "mse_dH_zero_forecast": 894.5324925108932, "frac_abs_r_ge_16": 0.36728962418300654, "max_abs_r": 124, "abstentions": 606, "time": "07:23:22"}
+{"stage": "forecast", "epoch": 0, "train_mse": 328.56985934591825, "val_mse": 324.74854531674094, "time": "07:23:22"}
+{"stage": "forecast", "epoch": 10, "train_mse": 140.5724696363515, "val_mse": 137.8115319032975, "lr": 0.49630130992134924, "time": "07:23:25"}
+{"stage": "forecast", "epoch": 20, "train_mse": 140.99582348040502, "val_mse": 137.9814783883929, "lr": 0.4836635470052158, "time": "07:23:28"}
+{"stage": "forecast", "epoch": 30, "train_mse": 140.74175553281964, "val_mse": 138.1951175768601, "lr": 0.46252659300761806, "time": "07:23:31"}
+{"stage": "forecast", "epoch": 40, "train_mse": 140.11678355305105, "val_mse": 137.55967337485887, "lr": 0.43370272921694325, "time": "07:23:34"}
+{"stage": "forecast", "epoch": 50, "train_mse": 139.95893235323533, "val_mse": 138.64201170719736, "lr": 0.3982996405540579, "time": "07:23:37"}
+{"stage": "forecast", "epoch": 60, "train_mse": 139.47324759154887, "val_mse": 139.10460217598705, "lr": 0.357677847861996, "time": "07:23:40"}
+{"stage": "forecast", "epoch": 70, "train_mse": 139.17640459249026, "val_mse": 139.15551369954767, "lr": 0.3133984238529496, "time": "07:23:43"}
+{"stage": "forecast", "epoch": 80, "train_mse": 138.84644116569393, "val_mse": 138.06650864924703, "lr": 0.2671630019593992, "time": "07:23:46"}
+{"stage": "forecast", "epoch": 90, "train_mse": 138.46684176852395, "val_mse": 137.92296620621914, "lr": 0.22074838351559078, "time": "07:23:49"}
+{"stage": "forecast", "epoch": 100, "train_mse": 138.0555017503723, "val_mse": 137.18693521556057, "lr": 0.17593825627870194, "time": "07:23:52"}
+{"stage": "forecast", "epoch": 110, "train_mse": 137.82431446304966, "val_mse": 136.98282635012725, "lr": 0.13445464830863754, "time": "07:23:56"}
+{"stage": "forecast", "epoch": 120, "train_mse": 137.62178192963043, "val_mse": 136.91191243726857, "lr": 0.09789175139541151, "time": "07:23:59"}
+{"stage": "forecast", "epoch": 130, "train_mse": 137.51704515975885, "val_mse": 136.91091781996752, "lr": 0.06765465716269052, "time": "07:24:02"}
+{"stage": "forecast", "epoch": 140, "train_mse": 137.4055107292519, "val_mse": 136.8024396087311, "lr": 0.044905360184680235, "time": "07:24:05"}
+{"stage": "forecast", "epoch": 150, "train_mse": 137.39003984452054, "val_mse": 136.80126955521197, "lr": 0.03051810318629281, "time": "07:24:08"}
+{"stage": "forecast", "epoch": 160, "train_mse": 137.3976685659874, "val_mse": 136.74898353131158, "lr": 0.025045780385509607, "time": "07:24:11"}
+{"stage": "forecast_selected", "val_mse": 136.74898353131158, "time": "07:24:11"}
+{"stage": "trained_test", "rows": 1224, "mean_abs_r": 9.265607979302832, "mse_r": 175.33001429738562, "mse_dH_zero_forecast": 894.5324925108932, "frac_abs_r_ge_16": 0.1652539488017429, "max_abs_r": 97, "abstentions": 287, "time": "07:24:17"}
+{"stage": "class", "epoch": 0, "bce": 1.2203861806447787, "acc_assigned": 0.5231316725978647, "time": "07:24:45"}
+{"stage": "class", "epoch": 10, "bce": 0.7279815766313777, "acc_assigned": 0.5770780797058754, "time": "07:24:47"}
+{"stage": "class", "epoch": 20, "bce": 0.7359137511813822, "acc_assigned": 0.5774787301736938, "time": "07:24:49"}
+{"stage": "class", "epoch": 30, "bce": 0.7330130744726867, "acc_assigned": 0.5731187103768471, "time": "07:24:51"}
+{"stage": "class", "epoch": 40, "bce": 0.729048257265632, "acc_assigned": 0.5752869364379817, "time": "07:24:53"}
+{"stage": "class", "epoch": 50, "bce": 0.7288724929524771, "acc_assigned": 0.5751455303905164, "time": "07:24:55"}
+{"stage": "class", "epoch": 60, "bce": 0.7279643567211469, "acc_assigned": 0.5739200113124838, "time": "07:24:57"}
+{"stage": "slice_check", "scenes": 4, "bit_exact": 4, "all": true, "time": "07:24:58"}

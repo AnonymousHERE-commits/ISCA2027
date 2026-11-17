@@ -1,0 +1,10 @@
+{
+  "_doc": "AIE worker classes. A class is a body mask (SV_BODY_MASK): bit i enables dispatcher opcode i (0 CONV, 1 GEMM, 2 STENCIL, 3 LUT, 4 PERMUTE, 5 SEGOPS, 6 TAPMOD, 7 HEAD). A set lists the class of each worker in PLIO order. 'uniform' needs the whole dispatcher to fit one tile's 16 KB program memory; if the AIE compiler reports a program-memory overflow, use 'split3' (or add a finer set). Every opcode must be covered by at least one worker of the set.",
+  "sets": {
+    "uniform1": {"masks": ["0xFF"]},
+    "uniform2": {"masks": ["0xFF", "0xFF"]},
+    "uniform4": {"masks": ["0xFF", "0xFF", "0xFF", "0xFF"]},
+    "split3":   {"masks": ["0x03", "0x44", "0xB8"], "names": ["conv+gemm", "stencil+tapmod", "lut+permute+segops+head"]},
+    "split6":   {"masks": ["0x01", "0x02", "0x04", "0x40", "0x38", "0x88"], "names": ["conv", "gemm", "stencil", "tapmod", "lut+permute+segops", "lut+head"]}
+  }
+}

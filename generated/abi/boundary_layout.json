@@ -1,0 +1,319 @@
+{
+  "manifest_sha256": "3cbe66ced87d74e9e0d651713d08607049605839c4c159db24236c042130438e",
+  "layouts": {
+    "H0": {
+      "label_id": 0,
+      "dir": "AIE->PL",
+      "header_bytes": 32,
+      "payload_bytes": 12800,
+      "total_bytes": 12832,
+      "fields": [
+        {
+          "name": "e",
+          "dtype": "u8",
+          "count": 6400,
+          "offset": 0,
+          "bytes": 6400
+        },
+        {
+          "name": "t",
+          "dtype": "u8",
+          "count": 6400,
+          "offset": 6400,
+          "bytes": 6400
+        }
+      ]
+    },
+    "H1": {
+      "label_id": 1,
+      "dir": "AIE->PL",
+      "header_bytes": 32,
+      "payload_bytes": 49664,
+      "total_bytes": 49696,
+      "fields": [
+        {
+          "name": "e",
+          "dtype": "u8",
+          "count": 1856,
+          "offset": 0,
+          "bytes": 1856
+        },
+        {
+          "name": "t",
+          "dtype": "u8",
+          "count": 1856,
+          "offset": 1856,
+          "bytes": 1856
+        },
+        {
+          "name": "xy",
+          "dtype": "u16",
+          "count": 1856,
+          "offset": 3712,
+          "bytes": 3712
+        },
+        {
+          "name": "hyp_mu",
+          "dtype": "i16",
+          "count": 7424,
+          "offset": 7424,
+          "bytes": 14848
+        },
+        {
+          "name": "hyp_prec",
+          "dtype": "u16",
+          "count": 7424,
+          "offset": 22272,
+          "bytes": 14848
+        },
+        {
+          "name": "reserve_scores",
+          "dtype": "u8",
+          "count": 6400,
+          "offset": 37120,
+          "bytes": 6400
+        },
+        {
+          "name": "rr_partner",
+          "dtype": "u16",
+          "count": 2048,
+          "offset": 43520,
+          "bytes": 4096
+        },
+        {
+          "name": "rr_score",
+          "dtype": "u8",
+          "count": 2048,
+          "offset": 47616,
+          "bytes": 2048
+        }
+      ]
+    },
+    "P": {
+      "label_id": 2,
+      "dir": "AIE->PL",
+      "header_bytes": 32,
+      "payload_bytes": 19200,
+      "total_bytes": 19232,
+      "fields": [
+        {
+          "name": "scores",
+          "dtype": "u8",
+          "count": 19200,
+          "offset": 0,
+          "bytes": 19200
+        }
+      ]
+    },
+    "H2": {
+      "label_id": 3,
+      "dir": "PL->AIE",
+      "header_bytes": 32,
+      "payload_bytes": 20520,
+      "total_bytes": 20552,
+      "fields": [
+        {
+          "name": "ids_p3",
+          "dtype": "u16",
+          "count": 6400,
+          "offset": 0,
+          "bytes": 12800
+        },
+        {
+          "name": "ids_p4",
+          "dtype": "u16",
+          "count": 1600,
+          "offset": 12800,
+          "bytes": 3200
+        },
+        {
+          "name": "ids_p5",
+          "dtype": "u16",
+          "count": 400,
+          "offset": 16000,
+          "bytes": 800
+        },
+        {
+          "name": "order",
+          "dtype": "u16",
+          "count": 1856,
+          "offset": 16800,
+          "bytes": 3712
+        },
+        {
+          "name": "F",
+          "dtype": "u32",
+          "count": 1,
+          "offset": 20512,
+          "bytes": 4
+        }
+      ]
+    },
+    "G": {
+      "label_id": 4,
+      "dir": "PL->AIE",
+      "header_bytes": 32,
+      "payload_bytes": 8192,
+      "total_bytes": 8224,
+      "fields": [
+        {
+          "name": "mask",
+          "dtype": "u32",
+          "count": 2048,
+          "offset": 0,
+          "bytes": 8192
+        }
+      ]
+    },
+    "H3": {
+      "label_id": 5,
+      "dir": "AIE->PL",
+      "header_bytes": 32,
+      "payload_bytes": 91648,
+      "total_bytes": 91680,
+      "fields": [
+        {
+          "name": "H",
+          "dtype": "i8",
+          "count": 16384,
+          "offset": 0,
+          "bytes": 16384
+        },
+        {
+          "name": "nu",
+          "dtype": "i8",
+          "count": 3072,
+          "offset": 16384,
+          "bytes": 3072
+        },
+        {
+          "name": "need",
+          "dtype": "i32",
+          "count": 256,
+          "offset": 19456,
+          "bytes": 1024
+        },
+        {
+          "name": "rho",
+          "dtype": "i32",
+          "count": 256,
+          "offset": 20480,
+          "bytes": 1024
+        },
+        {
+          "name": "phi",
+          "dtype": "i32",
+          "count": 1024,
+          "offset": 21504,
+          "bytes": 4096
+        },
+        {
+          "name": "n_partners",
+          "dtype": "u16",
+          "count": 256,
+          "offset": 25600,
+          "bytes": 512
+        },
+        {
+          "name": "evidence",
+          "dtype": "i16",
+          "count": 32768,
+          "offset": 26112,
+          "bytes": 65536
+        }
+      ]
+    },
+    "H3p": {
+      "label_id": 6,
+      "dir": "PL->AIE",
+      "header_bytes": 32,
+      "payload_bytes": 4096,
+      "total_bytes": 4128,
+      "fields": [
+        {
+          "name": "sources",
+          "dtype": "u16",
+          "count": 2048,
+          "offset": 0,
+          "bytes": 4096
+        }
+      ]
+    },
+    "H3pp": {
+      "label_id": 7,
+      "dir": "AIE->PL",
+      "header_bytes": 32,
+      "payload_bytes": 106496,
+      "total_bytes": 106528,
+      "fields": [
+        {
+          "name": "tv",
+          "dtype": "i8",
+          "count": 98304,
+          "offset": 0,
+          "bytes": 98304
+        },
+        {
+          "name": "checks",
+          "dtype": "i32",
+          "count": 2048,
+          "offset": 98304,
+          "bytes": 8192
+        }
+      ]
+    },
+    "H4": {
+      "label_id": 8,
+      "dir": "PL->AIE",
+      "header_bytes": 32,
+      "payload_bytes": 18432,
+      "total_bytes": 18464,
+      "fields": [
+        {
+          "name": "dV",
+          "dtype": "i8",
+          "count": 12288,
+          "offset": 0,
+          "bytes": 12288
+        },
+        {
+          "name": "boxes",
+          "dtype": "i16",
+          "count": 1024,
+          "offset": 12288,
+          "bytes": 2048
+        },
+        {
+          "name": "xi",
+          "dtype": "i8",
+          "count": 4096,
+          "offset": 14336,
+          "bytes": 4096
+        }
+      ]
+    },
+    "H5": {
+      "label_id": 9,
+      "dir": "AIE->PL",
+      "header_bytes": 32,
+      "payload_bytes": 96008,
+      "total_bytes": 96040,
+      "fields": [
+        {
+          "name": "count",
+          "dtype": "u32",
+          "count": 1,
+          "offset": 0,
+          "bytes": 4
+        },
+        {
+          "name": "cand",
+          "dtype": "u32",
+          "count": 24000,
+          "offset": 8,
+          "bytes": 96000
+        }
+      ]
+    }
+  }
+}

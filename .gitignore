@@ -1,0 +1,29 @@
+# build outputs (disposable, roadmap section 4)
+build/
+logs/*
+!logs/.gitkeep
+artifacts/references/vectors/
+artifacts/release/*/
+artifacts/checkpoints/*
+!artifacts/checkpoints/README.md
+
+# tool work directories that may be created next to sources
+Work/
+_x*/
+.Xil/
+*.jou
+*.log
+*.str
+.ipcache/
+x86simulator_output/
+aiesimulator_output/
+.run/
+
+# the manuscript is not distributed with the code
+paper/*.pdf
+
+# Python / native
+__pycache__/
+*.pyc
+ps/native/*.so
+.venv/

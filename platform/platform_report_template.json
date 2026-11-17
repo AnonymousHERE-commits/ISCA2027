@@ -1,0 +1,18 @@
+{
+  "_doc": "Fields of evidence/preflight/platform_report.json (roadmap 3.2). tools/platform_report.py fills what it can read from the XPFM/XSA and platforminfo; the rest is filled from the Vivado/Vitis reports and the board inventory. Unknown stays null, never guessed.",
+  "part": null,
+  "board": "TE0950-03",
+  "board_revision": null,
+  "tools": {"vivado": null, "vitis": null, "petalinux_or_edf": null},
+  "xpfm": {"path": null, "sha256": null},
+  "xsa": {"path": null, "sha256": null},
+  "clocks": [{"id": null, "name": null, "freq_hz": null, "default": null}],
+  "memory_banks": [],
+  "aie": {"tiles": null, "mem_tiles": null, "plio_available": null},
+  "stream_interfaces": [],
+  "address_map_source": null,
+  "linux": {"kernel": null, "rootfs": null, "dtb": null},
+  "xrt": {"version": null, "zocl": null, "pyxrt": null, "graph_binding": null},
+  "power_monitors": [],
+  "notes": []
+}

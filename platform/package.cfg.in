@@ -1,0 +1,9 @@
+# v++ --package configuration (rendered by tools/build_cfg.py package).
+# boot_mode=sd builds the SD boot files (BOOT.BIN with the PL+AIE PDI) next to the xclbin.
+# On Versal without DFX the PDI is loaded at boot: copy the new BOOT.BIN to the board's boot
+# partition and reboot before running the apps (docs/BUILD_AND_RUN.md, section 'Deploy').
+[package]
+boot_mode=sd
+out_dir=@OUT_DIR@
+@DEFER_LINE@
+@IMAGE_LINES@

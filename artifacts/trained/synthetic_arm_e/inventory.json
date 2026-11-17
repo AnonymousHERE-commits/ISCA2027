@@ -1,0 +1,105 @@
+[
+  {
+    "name": "heads.O_F",
+    "op": "gemm weights",
+    "shape": [
+      64,
+      48
+    ],
+    "trained": true
+  },
+  {
+    "name": "heads.O_T",
+    "op": "gemm weights",
+    "shape": [
+      64,
+      48
+    ],
+    "trained": false
+  },
+  {
+    "name": "heads.W_K",
+    "op": "gemm weights",
+    "shape": [
+      64,
+      64
+    ],
+    "trained": true
+  },
+  {
+    "name": "heads.W_S",
+    "op": "gemm weights",
+    "shape": [
+      64,
+      64
+    ],
+    "trained": false
+  },
+  {
+    "name": "heads.W_U",
+    "op": "gemm weights",
+    "shape": [
+      12,
+      16
+    ],
+    "trained": true
+  },
+  {
+    "name": "heads.Z",
+    "op": "gemm weights",
+    "shape": [
+      48,
+      64
+    ],
+    "trained": true
+  },
+  {
+    "name": "heads.u0",
+    "op": "vector",
+    "shape": [
+      12
+    ],
+    "trained": true
+  },
+  {
+    "name": "heads.ua",
+    "op": "vector",
+    "shape": [
+      12
+    ],
+    "trained": true
+  },
+  {
+    "name": "heads.w_cls",
+    "op": "vector",
+    "shape": [
+      64
+    ],
+    "trained": true
+  },
+  {
+    "name": "heads.w_need",
+    "op": "vector",
+    "shape": [
+      64
+    ],
+    "trained": false
+  },
+  {
+    "name": "heads.w_phi",
+    "op": "gemm weights",
+    "shape": [
+      64,
+      4
+    ],
+    "trained": false
+  },
+  {
+    "name": "heads.w_rho",
+    "op": "vector",
+    "shape": [
+      64
+    ],
+    "trained": false
+  }
+]

@@ -1,0 +1,94 @@
+{
+  "_doc": "PL kernels of the SPLICE-V bring-up (Vitis HLS C++). 'file' is syn.file, 'tb' the C-simulation testbench and its define. Capacities are compile-time macros (pl/engines/sv_kernels.h): 'full' uses the manifest caps, 'small' fits the toy vertical slice (gate G07) with less BRAM. Every kernel checks n against its capacity at run time and fails closed.",
+  "part": "xcve2302-sfva784-1LP-e-S",
+  "clock": "300MHz",
+  "include": [
+    "pl/include",
+    "pl/engines",
+    "generated/cpp"
+  ],
+  "cflags": [
+    "-DSPLICEV_USE_AP_INT"
+  ],
+  "kernels": {
+    "sv_mm2s": {
+      "file": "pl/engines/sv_movers.cpp",
+      "tb": null
+    },
+    "sv_s2mm": {
+      "file": "pl/engines/sv_movers.cpp",
+      "tb": null
+    },
+    "sv_reserve": {
+      "file": "pl/engines/sv_reserve_k.cpp",
+      "tb": "pl/tb/tb_kernels.cpp",
+      "tb_define": "TB_RESERVE"
+    },
+    "sv_linkage": {
+      "file": "pl/engines/sv_linkage_k.cpp",
+      "tb": "pl/tb/tb_kernels.cpp",
+      "tb_define": "TB_LINKAGE"
+    },
+    "sv_gate": {
+      "file": "pl/engines/sv_gate_k.cpp",
+      "tb": "pl/tb/tb_kernels.cpp",
+      "tb_define": "TB_GATE"
+    },
+    "sv_exchange1": {
+      "file": "pl/engines/sv_exchange_k.cpp",
+      "tb": "pl/tb/tb_kernels.cpp",
+      "tb_define": "TB_EXCHANGE"
+    },
+    "sv_exchange2": {
+      "file": "pl/engines/sv_exchange_k.cpp",
+      "tb": "pl/tb/tb_kernels.cpp",
+      "tb_define": "TB_EXCHANGE"
+    }
+  },
+  "caps": {
+    "full": {},
+    "small": {
+      "SV_RESERVE_NMAX": 1024,
+      "SV_LINK_NMAX": 192,
+      "SV_LINK_EMAX": 2048,
+      "SV_GATE_NMAX": 192
+    }
+  },
+  "systems": {
+    "smoke": {
+      "aie": "smoke",
+      "kernels": [
+        "sv_mm2s",
+        "sv_s2mm"
+      ],
+      "caps": "full"
+    },
+    "slice1": {
+      "aie": "uniform1",
+      "kernels": [
+        "sv_mm2s",
+        "sv_s2mm",
+        "sv_reserve",
+        "sv_linkage",
+        "sv_gate",
+        "sv_exchange1",
+        "sv_exchange2"
+      ],
+      "caps": "small"
+    },
+    "slice3": {
+      "aie": "split3",
+      "kernels": [
+        "sv_mm2s",
+        "sv_s2mm",
+        "sv_reserve",
+        "sv_linkage",
+        "sv_gate",
+        "sv_exchange1",
+        "sv_exchange2"
+      ],
+      "caps": "small"
+    }
+  },
+  "_memory_note": "sv_linkage keeps per-cluster neighbour lists of NBCAP = 2*LINK_NBMAX-2 = 254 entries (exact reference semantics), i.e. about 4.5 KB per anchor: 'small' (192 anchors) needs ~0.9 MB, 'full' (1856 anchors) ~8.5 MB, which exceeds the VE2302 on-chip RAM. The full-frame linkage needs the pooled-list redesign of WP-3 (planning/WORK_PACKAGES.md) before G10; 'small' is sized for the toy slice (160 anchors, <= 1772 edges)."
+}
